@@ -17,13 +17,13 @@ class InteractiveRecord
   end
 
   def self.find_by_name(name)
-  	sql = "SELECT * FROM #{self.table_name} WHERE name = #{name};"
-  	binding.pry
+  	sql = "SELECT * FROM #{self.table_name} WHERE name = '#{name}';"
   	DB[:conn].execute(sql)
+  	#[DB[:conn].execute(sql)[0].delete_if{|k,v| !self.column_names.include?(k)}]
   end
 
   def self.find_by(attr_hash)
-  	sql = "SELECT * FROM #{self.table_name} WHERE #{attr_hash.keys[0]} = #{attr_hash.values[0]};"
+  	sql = "SELECT * FROM #{self.table_name} WHERE #{attr_hash.keys[0]} = '#{attr_hash.values[0]}';"
   	DB[:conn].execute(sql)
   end
 
