@@ -76,7 +76,7 @@ describe Student do
 
     describe '#col_names_for_insert' do
       it 'return the column names when called on an instance of Student' do
-        expect(new_student.col_names_for_insert).to include("name, grade")
+        expect(new_student.col_names_for_insert).to include("name",  "grade")
       end
 
       it 'does not include an id column' do
