@@ -13,8 +13,8 @@ class InteractiveRecord
 
         table_info = DB[:conn].execute(sql)
         column_names = []
-        table_info.each do |row| 
-            column_names << row['name']
+        table_info.each do |hash| 
+            column_names << hash['name']
         end 
         column_names.compact
     end 
